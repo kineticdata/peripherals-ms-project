@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="msproject_project_checkin" name="MSProject Project Check In" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>This handler checks in a Microsoft Project project.</description>
+    <helpurl>http://ktc.kineticdata.com/handler/msproject_project_create/1</helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="project_id" label="Project Id" required="true"
+            tooltip="The id of the project that you want to check-in."/>
+    </parameters>
+    <handler name="msproject_project_checkin" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="ms_project_location">&lt;%= @info['ms_project_location'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="project_id">&lt;%= @parameters['project_id'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results/>
+</taskDefinition>

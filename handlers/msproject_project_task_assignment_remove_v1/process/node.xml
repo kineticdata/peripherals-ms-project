@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="msproject_project_task_assignment_remove" name="MSProject Project Task Assignment Remove" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>This handler removes an assignment from an existing task in Microsoft Project.</description>
+    <helpurl>http://ktc.kineticdata.com/handler/msproject_project_task_assignment_remove/1</helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="project_id" label="Project Id" required="true"
+            tooltip="The id of the project that contains the task that the assignment will be removed from."/>
+        <parameter id="task_id" label="Task Id" required="true"
+            tooltip="The id of the task that the assignment should be removed from."/>
+        <parameter id="resource_email" label="Resource Email" required="false"
+            tooltip="The email that will be unassigned from the task. If left blank, all Assignments will be removed from the task."/>
+    </parameters>
+    <handler name="msproject_project_task_assignment_remove" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="ms_project_location">&lt;%= @info['ms_project_location'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="project_id">&lt;%= @parameters['project_id'] %&gt;</parameter>
+            <parameter name="task_id">&lt;%= @parameters['task_id'] %&gt;</parameter>
+            <parameter name="resource_email">&lt;%= @parameters['resource_email'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml"/>
+</taskDefinition>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="msproject_lookup_entry" name="MSProject Lookup Entry" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>This handler looks up the id for an entry in a lookup table.</description>
+    <helpurl>http://ktc.kineticdata.com/handler/msproject_lookup_entry/1</helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="lookup_table" label="Lookup Table" required="true"
+            tooltip="The name of the table where the entry is located."/>
+        <parameter id="lookup_entry" label="Lookup Entry" required="true"
+            tooltip="The name of the entry that you want to look up."/>
+    </parameters>
+    <handler name="msproject_lookup_entry" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="ms_project_location">&lt;%= @info['ms_project_location'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="lookup_table">&lt;%= @parameters['lookup_table'] %&gt;</parameter>
+            <parameter name="lookup_entry">&lt;%= @parameters['lookup_entry'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+        <result name="entry_id"/>
+    </results>
+</taskDefinition>

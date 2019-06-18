@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="msproject_project_create" name="MSProject Project Create" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>This handler creates a new project in Microsoft Project.</description>
+    <helpurl>http://ktc.kineticdata.com/handler/msproject_project_create/1</helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="enterprise_project_type" label="Enterprise Project Type" required="true"
+            tooltip="The guid of the enterprise project type that this project will use."/>
+        <parameter id="name" label="Name" required="true"
+            tooltip="The name of the new project."/>
+    </parameters>
+    <handler name="msproject_project_create" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="ms_project_location">&lt;%= @info['ms_project_location'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="enterprise_project_type">&lt;%= @parameters['enterprise_project_type'] %&gt;</parameter>
+            <parameter name="name">&lt;%= @parameters['name'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results>
+        <result name="project_id"/>
+    </results>
+</taskDefinition>

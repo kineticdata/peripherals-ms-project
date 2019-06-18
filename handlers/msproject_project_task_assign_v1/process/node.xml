@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="msproject_project_task_assign" name="MSProject Project Task Assign" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>This handler assigns a Task to a Enterprise Resource.</description>
+    <helpurl>http://ktc.kineticdata.com/handler/msproject_project_task_assign/1</helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="project_id" label="Project Id" required="true"
+            tooltip="The id of the project that contains the task that will be assigned."/>
+        <parameter id="task_id" label="Task Id" required="true"
+            tooltip="The id of the task that will be assigned."/>
+        <parameter id="resource_id" label="Resource Id" required="true"
+            tooltip="The id of the Enterprise Resource that will be assigned to the task."/>
+    </parameters>
+    <handler name="msproject_project_task_assign" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="ms_project_location">&lt;%= @info['ms_project_location'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="project_id">&lt;%= @parameters['project_id'] %&gt;</parameter>
+            <parameter name="task_id">&lt;%= @parameters['task_id'] %&gt;</parameter>
+            <parameter name="resource_id">&lt;%= @parameters['resource_id'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml"/>
+</taskDefinition>

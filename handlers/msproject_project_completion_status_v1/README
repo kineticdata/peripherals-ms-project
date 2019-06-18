@@ -1,0 +1,24 @@
+== MSProject Project Completion Status
+  This handler checks a projects completion status.
+
+=== Parameters
+[Project Id]
+  The project id of the project that you want to find the completion status from.
+
+=== Results
+[Is Complete?]
+  A boolean that denotes whether the project is currently complete. True for
+  complete, false for incomplete.
+
+==== Sample Configuration
+Project Id:                   db521c56-44ab-422d-9abd-29d8d359043a
+
+=== Detailed Description
+This handler makes a REST call Microsoft Project Online to the Project Server
+API to check a project's completion status in MS Project. After authenticating 
+against the Project Server using the inputted username and password, the handler 
+makes a call to Project to get the project object corresponding to the inputted
+id. The list of completion stage names in the info values are then compared
+against the stage of the project that was returned to determine the projects
+completion status. Any errors that occur during this process will be caught and
+re-raised by the handler.

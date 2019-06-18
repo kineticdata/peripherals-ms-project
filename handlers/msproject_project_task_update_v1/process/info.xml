@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taskInfo version="1.0">
+    <info name="username" description="The username of the Sharepoint account."></info>
+    <info name="password" type="encrypted" description="The password of the Sharepoint account."></info>
+    <info name="ms_project_location" description="The url for the homepage of the Microsoft Project location (ie. https://company.sharepoint.com/sites/pwa)."></info>
+    <info name="enable_debug_logging" description="Enable debug logging if the value is set to 'Yes'.">No</info>
+</taskInfo>

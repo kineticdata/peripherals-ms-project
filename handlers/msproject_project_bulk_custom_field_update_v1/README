@@ -1,0 +1,28 @@
+== MSProject Project Bulk Custom Field Update
+This handler updates multiple custom fields in Microsoft Project.
+
+=== Parameters
+[Project Id]
+  The id of the project where you want to update custom fields.
+[Custom Field Map]
+  A JSON map of the custom field key and values that you want to update in the 
+  form of {"Custom Field Label" : "Value"}
+
+=== Results
+This handler does not return any results.
+
+==== Sample Configuration
+Project Id:                      70ce0098-d41a-4baf-bd05-9dde609e0f88
+Custom Field Map:                {Internal Priority":"bacad4d5-cddb-4393-9efc-240a07ab45a4", "Project Description" : "Test Description"}
+
+=== Detailed Description
+This handler makes a REST call Microsoft Project Online to the Project Server
+API to update multiple custom fields for a project in MS Project. After 
+authenticating against the Project Server using the inputted username and 
+password, the handler first makes a call to Project to get a FormDigestValue
+which is needed as a part of the authentication for future calls. A second
+call is then made to retrieve a list of the custom fields that are being used
+on the server, so that the field display names can be converted to ids for the
+final call. Lastly, the information is collected from the previous calls to make
+the call to Project to actually update the custom fields. Any errors that occur
+during this process will be caught and re-raised by the handler.

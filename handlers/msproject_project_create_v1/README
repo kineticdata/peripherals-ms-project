@@ -1,0 +1,26 @@
+== MSProject Project Create
+  This handler creates a new project in Microsoft Project.
+
+=== Parameters
+[Enterprise Project Type]
+  The guid of the enterprise project type that this project will use.
+[Name]
+  The name of the new project.
+
+=== Results
+[Project Id]
+  The id that corresponds to the newly created project.
+
+==== Sample Configuration
+Enterprise Project Type:         e5b49b78-eb74-4a60-a38f-88e5c887be49
+Name:                            Test Project
+
+=== Detailed Description
+This handler makes a REST call Microsoft Project Online to the Project Server
+API to create a project in MS Project. After authenticating against the 
+Project Server using the inputted username and password, the handler first makes 
+a call to Project to get a FormDigestValue which is needed as a part of the 
+authentication for future calls. That value is then used along with the inputted
+parameters for the Enterprise Project Type and Name to make a POST request to 
+the API to create the project while returning the id for the new project. Any 
+errors that occur during this process will be caught and re-raised by the handler.

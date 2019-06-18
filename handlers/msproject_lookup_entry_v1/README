@@ -1,0 +1,25 @@
+== MSProject_Lookup_Entry
+This handler looks up a value in a Microsoft Project lookup table.
+
+=== Parameters
+[Lookup Table]
+  The name of the table where the entry is located.
+[Lookup Entry]
+  The name of the entry that you want to look up.
+
+=== Results
+[Entry Id]
+  The id of the entry that corresponds to the Lookup Table and Lookup Entry
+
+==== Sample Configuration
+Lookup Table:                   Internal Priority
+Lookup Entry:                   Very High
+
+=== Detailed Description
+This handler makes a REST call to the Microsoft Project REST API to lookup a
+GUID corresponding to a Lookup Table and a Lookup Entry Value. After authenticating 
+against the Project Server using the inputted username and password, the handler 
+makes a call to Project to get the id that corresponds to the lookup table name. 
+A second call is then made to the specific lookup table to get the id for the
+lookup entry. The id for that entry is then returned. Any errors that occur 
+during this process will be caught and re-raised by the handler.

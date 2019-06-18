@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="msproject_project_task_update" name="MSProject Project Task Update" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>Updates an existing Task in Microsoft Project.</description>
+    <helpurl>http://ktc.kineticdata.com/handler/msproject_project_task_update/1</helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="project_id" label="Project Id" required="true"
+            tooltip="Id of the project that the task is contained in."/>
+        <parameter id="task_id" label="Task Id" required="true"
+            tooltip="Id of the task."/>
+        <parameter id="name" label="Task Name" required="false"
+            tooltip="Update the name."/>
+        <parameter id="notes" label="Task Note" required="false"
+            tooltip="Update the notes."/>
+        <parameter id="work" label="Work (Hours)" required="false"
+            tooltip="Amount of work in hours"/>
+        <parameter id="start" label="Start" required="false"
+            tooltip="Task start date (YYYY-MM-DDTHH:mm:ss)"/>
+        <parameter id="finish" label="Finish" required="false"
+            tooltip="Task finish date (YYYY-MM-DDTHH:mm:ss)"/>
+    </parameters>
+    <handler name="msproject_project_task_update" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="ms_project_location">&lt;%= @info['ms_project_location'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="project_id">&lt;%= @parameters['project_id'] %&gt;</parameter>
+            <parameter name="task_id">&lt;%= @parameters['task_id'] %&gt;</parameter>
+            <parameter name="name">&lt;%= @parameters['name'] %&gt;</parameter>
+            <parameter name="notes">&lt;%= @parameters['notes'] %&gt;</parameter>
+            <parameter name="work">&lt;%= @parameters['work'] %&gt;</parameter>
+            <parameter name="start">&lt;%= @parameters['start'] %&gt;</parameter>
+            <parameter name="finish">&lt;%= @parameters['finish'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+        <result name="task_id"/>
+    </results>
+</taskDefinition>

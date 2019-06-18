@@ -1,0 +1,21 @@
+== MSProject Project Check In
+  This handler checks in a Microsoft Project project.
+
+=== Parameters
+[Project Id]
+  The id of the project that you want to check in.
+
+=== Results
+This handler does not return any results.
+
+==== Sample Configuration
+Project Id:                  ac9f07a3-9cd6-45b9-bff4-940294439b40
+
+=== Detailed Description
+This handler makes a REST call Microsoft Project Online to the Project Server
+API to check a project back into MS Project. After authenticating against the 
+Project Server using the inputted username and password, the handler first makes 
+a call to Project to get a FormDigestValue which is needed as a part of the 
+authentication for future calls. That value is then used along with the Project
+Id parameter to make a POST request to the API to check the project in. Any 
+errors that occur during this process will be caught and re-raised by the handler.

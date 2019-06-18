@@ -1,0 +1,21 @@
+== MSProject Project Check Out
+  This handler checks out a Microsoft Project project.
+
+=== Parameters
+[Project Id]
+  The id of the project that you want to check out.
+
+=== Results
+This handler does not return any results.
+
+==== Sample Configuration
+Project Id:                   15da1d25-5eb1-4dea-96eb-76664ace6515
+
+=== Detailed Description
+This handler makes a REST call Microsoft Project Online to the Project Server
+API to check out project from MS Project. After authenticating against the 
+Project Server using the inputted username and password, the handler first makes 
+a call to Project to get a FormDigestValue which is needed as a part of the 
+authentication for future calls. That value is then used along with the Project 
+Id parameter to make a POST request to the API to check out the project. Any 
+errors that occur during this process will be caught and re-raised by the handler.

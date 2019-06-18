@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="msproject_project_custom_field_update" name="MSProject Project Custom Field Update" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>This handler updates a custom field for a project in MS Project that is not currently checked out.</description>
+    <helpurl>http://ktc.kineticdata.com/handler/msproject_project_create/1</helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+        <parameter id="project_id" label="Project Id" required="true"
+            tooltip="The id of the project where you want to update custom fields."/>
+        <parameter id="custom_field_name" label="Custom Field Name" required="true"
+            tooltip="The name of the custom field that you wish to update."/>
+        <parameter id="custom_field_value" label="Custom Field Value" required="true"
+            tooltip="The value that you want to be added to the Custom Field."/>
+    </parameters>
+    <handler name="msproject_project_custom_field_update" version="1">
+        <infos>
+            <info name="username">&lt;%= @info['username'] %&gt;</info>
+            <info name="password">&lt;%= @info['password'] %&gt;</info>
+            <info name="ms_project_location">&lt;%= @info['ms_project_location'] %&gt;</info>
+            <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="project_id">&lt;%= @parameters['project_id'] %&gt;</parameter>
+            <parameter name="custom_field_name">&lt;%= @parameters['custom_field_name'] %&gt;</parameter>
+            <parameter name="custom_field_value">&lt;%= @parameters['custom_field_value'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results/>
+</taskDefinition>
