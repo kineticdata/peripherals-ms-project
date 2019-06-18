@@ -1,0 +1,16 @@
+/bridge-adapters/*/target/
+/file-adapters/*/target/
+**/nb-configuration.xml
+**/.classpath
+**/.project
+**/.settings/
+**/.vscode
+**/pom.xml.tag
+**/pom.xml.releaseBackup
+**/pom.xml.versionsBackup
+**/pom.xml.next
+**/release.properties
+**/dependency-reduced-pom.xml
+**/buildNumber.properties
+**/.mvn/timing.properties
+**/.sync.csv

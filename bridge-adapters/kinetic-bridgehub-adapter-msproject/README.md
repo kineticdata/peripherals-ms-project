@@ -1,0 +1,1 @@
+# kinetic-bridgehub-adapter-msproject
